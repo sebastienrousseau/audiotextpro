@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "audiotextpro"
+version = "0.0.1"
+description = "A Python module for interacting with the AssemblyAI API for audio transcription."
+authors = ["Sebastien Rousseau <sebastian.rousseau@gmail.com>"]
+license = "Apache Software License"
+readme = "README.md"
+repository = "https://github.com/sebastienrousseau/audiotextpro"
+homepage = "https://audiotextpro.com"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+requests = "^2.26.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ['py39', 'py310', 'py311']
+
+[tool.isort]
+profile = "black"
+line_length = 88  # Keeping consistent with Black's line length
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+combine_as_imports = true
+known_first_party = "audiotextpro"
+known_third_party = "requests"
+
+[tool.pytest]
+addopts = "--cov=audiotextpro --cov-report=term-missing --cov-report=xml --cov-report=html --cov-fail-under=100"
+testpaths = "tests"
